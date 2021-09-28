@@ -7,3 +7,4 @@
    CORS：
        需要后端在响应头中添加 Access-Control-Allow-* 头，告知浏览器通过此请求。
 
+

@@ -7,14 +7,15 @@ const {
     loadModel
 } = require('./db/init');
 const dbconfig = require('./db/config');
-const apis =require ('./api/user');
-const uuu = require('./api/index');
+// const apis = require('./api/user'); //这里得重构
+const apis = require('./api/index');
 const app = new Koa();
 
-loadModel(dbconfig)(app);
+loadModel(dbconfig);
 app.use(cors(corsoption));
 app.use(bodyParser());
-app.use(apis);
+app.use(...apis); //把路由挂上来
+// app.use(router.routes())
 app.use(router.allowedMethods());
 
 app.listen('8081');

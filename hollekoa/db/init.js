@@ -6,11 +6,10 @@
  * @param {*} config 
  * @returns 
  */
-
 const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
-const loadModel = config => app => {
+const loadModel = config => {
     mongoose.connect(config.db.url, config.db.options)
     const conn = mongoose.connection
     conn.on('error', () => {
